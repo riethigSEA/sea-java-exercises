@@ -3,7 +3,8 @@
 ### Usage
 
 * Fork this repo and push your solutions to your fork.
-* Add your forked Repository URL as solution URL to the quest.
+* Verify your solutions with the provided unittests.
+* Add your forked repository URL as solution URL to the quest.
 
 ### Structure
 
@@ -24,7 +25,7 @@
 
 ### Testing
 
-* Before you push your solution, the Unittests for the unit of work should pass.
+* Before you push your solution, the unittests for the unit of work should pass.
 * If tests are optional, this is stated in the comments for the test.
 
 ### Submitting
