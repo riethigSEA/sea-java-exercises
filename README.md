@@ -2,14 +2,13 @@
 
 ### Usage
 
-* Fork this repo and push your solutions to your fork.
+* Fork this repository and push your solutions to your fork.
 * Verify your solutions with the provided unittests.
 * Add your forked repository URL as solution URL to the quest.
 
 ### Structure
 
 ```
-├───.idea
 └───src
     ├───main
     │   ├───java
