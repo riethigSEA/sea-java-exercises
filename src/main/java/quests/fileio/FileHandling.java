@@ -10,16 +10,17 @@ public class FileHandling {
 
     public static void main(String[] args) throws IOException {
         // 1. Read file from new File("src/test/resources/kunden.csv").
-        // Use NIO for file reading, the static utility method Files.readAllLines
+        // Use NIO for file reading, the NIO static utility method Files.readAllLines
         // returns a List<String> of all lines in the file, each line one entry of the list
 
-        // 2. Split each line into a String array, use the correct separator string ","
+        // 2. Split each line into a String array, use the correct separator string ",".
+        // Each line consists of "id,name,email" of a Kunde.
 
-        // 3. Convert each line into an object of class Kunde
+        // 3. Convert each line into an object of class Kunde, which already has a suitable constructor (id,name,email)
 
         // 4. Add all Kunde objects to a new List<Kunde>
 
-        // 5. In this class, create a static method searchForId which takes the List<Kunde> and a String searchId, searches for the Kunde with this searchId as ID and returns the name
+        // 5. In this FileHandling class, create a static method searchForId which takes the List<Kunde> and a String searchId, searches for the Kunde with this searchId as ID and returns the name
 
         // 6. (Opt.) In this class, create a static method sortKunden which takes the List<Kunde>, sorts this list for the names and returns the sorted List<Kunde>
 
