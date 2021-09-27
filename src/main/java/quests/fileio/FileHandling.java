@@ -3,16 +3,29 @@ package quests.fileio;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileHandling {
 
     public static void main(String[] args) throws IOException {
-        // 1. Read file from new File("src/test/resources/kunden.csv").
+        File kcsv = new File("/Users/marco/IdeaProjects/sea-java-exercises/src/test/resources/kunden.csv");
+        List<String> inputList = Files.readAllLines(kcsv.toPath());
+        List<Kunde> kundenListe =  new ArrayList<>();
+
+        for(int i = 0; i < inputList.size(); i++){
+
+            String[] kundeArray = inputList.get(i).split(",");
+            kundenListe.add(new Kunde(kundeArray[0],kundeArray[1],kundeArray[2]));
+
+        }
+        System.out.println(searchForId(kundenListe, "TMU55QLK9BT"));
+
+
+
         // Use NIO for file reading, the NIO static utility method Files.readAllLines
         // returns a List<String> of all lines in the file, each line one entry of the list
-
         // 2. Split each line into a String array, use the correct separator string ",".
         // Each line consists of "id,name,email" of a Kunde.
 
@@ -31,7 +44,15 @@ public class FileHandling {
 
     public static String searchForId(List<Kunde> kunden, String id) {
         // Iterate through the list, search for the id and return the name if found.
-        return "THE RESULTING ID";
+        for(Kunde kunde : kunden) {
+            if (kunde.getId().equals(id)) {
+                return kunde.getName();
+            }
+
+
+        }
+        return null;
+
     }
 
 
