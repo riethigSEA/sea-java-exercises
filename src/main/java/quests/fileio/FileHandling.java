@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class FileHandling {
@@ -21,6 +23,7 @@ public class FileHandling {
 
         }
         System.out.println(searchForId(kundenListe, "TMU55QLK9BT"));
+        writeSortedKunden(sortKunden(kundenListe));
 
 
 
@@ -57,12 +60,24 @@ public class FileHandling {
 
 
     public static List<Kunde> sortKunden(List<Kunde> kunden) {
-        return new ArrayList<>();
+
+        kunden.sort(Comparator.comparing(Kunde::getName));
+        for ( Kunde kunde : kunden){
+            System.out.println(kunde.getName());
+        }
+        return kunden;
     }
 
     public static void writeSortedKunden(List<Kunde> lines) throws IOException {
         File out = new File("src/test/resources/sorted_kunden.csv");
-        FileWriter writer = new FileWriter(out);
+        FileWriter writer = new FileWriter(out, true);
+        for(Kunde kunde : lines) {
+
+
+            writer.write(kunde.getId()+","+kunde.getName()+","+kunde.getEmail()+ System.lineSeparator());
+
+        }
+        writer.close();
         // Write each line to the file. If it looks funny, maybe you have to add a line separator (System.lineSeparator())
     }
 }
